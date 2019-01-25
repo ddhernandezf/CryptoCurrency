@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/_IframeViewLayout.cshtml";
+}
+
+<script src="@Url.Content("~/CrpMonPortal/Angular/Generales/Funciones.js")"></script>
+<script src="@Url.Content("~/CrpMonPortal/Angular/Apps/EtherApp.js")"></script>
+<script src="@Url.Content("~/CrpMonPortal/Angular/Controllers/NoticiaCtrl.js")"></script>
+
+<div ng-app="EtherApp" ng-controller="NoticiaCtrl">
+    <div class="col-12">
+        <div class="col-12" style="text-align: center;">
+            <button class="k-button" ng-click="Refrescar();"><img src="@Url.Content("~/CrpMonPortal/Imagenes/Vistas/Refrescar.png")" /><span>{{ModeloVista.btnRefrescar}}</span></button>
+            <button class="k-button" ng-click="Cerrar()"><img src="@Url.Content("~/CrpMonPortal/Imagenes/Vistas/Cerrar.png")" /><span>{{ModeloVista.btnCancelar}}</span></button>
+        </div>
+    </div>
+    <div class="noticia-titulo">{{ModeloVista.lblTitulo}}</div>
+    <div class="contenedor-noticas">
+        <div ng-repeat="dato in Modelo" class="noticia">
+            <div class="titulo">
+                <div class="titulo-contenido">{{dato.Titulo}}</div>
+                <div class="titulo-contenido" style="text-align:right;">{{ dato.FechaMostar}}</div>
+            </div>
+            <div class="contenido">{{dato.Contenido}}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+﻿@using CrpMon.Comunes.Modelos.Vistas
+
+@{
+    CPersona persona = (CPersona)Session["USUARIO"];
+    string name = persona.Nombres + " " + persona.Apellidos;
+ }
+
+<!DOCTYPE html>
+<html class="general">
+<head>
+    <title>Ether-Nity | Portal</title>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="shortcut icon" href="@Url.Content("~/CrpMonPortal/Imagenes/favicon.png")" />
+
+    <link href="@Url.Content("~/Content/kendo/2017.2.621/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2017.2.621/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2017.2.621/kendo.bootstrap.min.css")" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/CrpMonPortal/Css/Ether-Nity.css")" rel="stylesheet" type="text/css" />
+
+    <script src="@Url.Content("~/Scripts/kendo/2017.2.621/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2017.2.621/angular.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2017.2.621/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2017.2.621/kendo.all.min.js")"></script>
+
+    <script src="@Url.Content("~/Scripts/kendo/2017.2.621/cultures/kendo.culture.es-GT.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2017.2.621/messages/kendo.messages.es-GT.min.js")"></script>
+
+    <script src="@Url.Content("~/CrpMonPortal/Angular/Generales/Funciones.js")"></script>
+    <script src="@Url.Content("~/CrpMonPortal/Angular/Apps/EtherApp.js")"></script>
+    <script src="@Url.Content("~/CrpMonPortal/Angular/Controllers/LayoutCtrl.js")"></script>
+</head>
+<body ng-app="EtherApp" ng-controller="LayoutCtrl">
+    <header>
+        <div class="contenedor-empresa">
+            <div class="menu">
+                <button ng-click="LlamarMenu()"><img src="@Url.Content("~/CrpMonPortal/Imagenes/SandwichMenu.png")" /></button>
+            </div>
+            <div class="logo">
+                <img src="@Url.Content("~/CrpMonPortal/Imagenes/Banner.png")" />
+            </div>
+        </div>
+        <div class="contenedor-usuario">
+            <button type="button" id="btnPreferencia" title="@persona.Usuario">
+                <div class="prefer-logo">
+                    <img src="~/CrpMonPortal/Imagenes/Preferencias.png" />
+                </div>
+                <div class="info-usuario">
+                    @name
+                </div>
+                <div class="info-status">Status: @persona.Des_Estado</div>
+            </button>
+            <a class="erp-salir" href="@Url.Action("CerrarSesion", "Seguridad")">Cerrar Sesión</a>
+        </div>
+    </header>
+    <section id="body-content">
+        @RenderBody()
+    </section>
+    <div class="blocker">
+        <div class="loader">
+            <img src="@Url.Content("~/Content/kendo/2017.2.621/BlueOpal/loading-image.gif")" />
+        </div>
+    </div>
+    <div kendo-window="kwnMenu" k-options="kwnMenuOpt">
+        <div class="language-container">
+            <div class="col-10">
+                <select name="kddIdioma" kendo-drop-down-list="kddIdioma"
+                        k-data-source="kddIdiomaDS"
+                        k-options="kddIdiomaOPC"
+                        style="width: 100%"></select>
+            </div>
+        </div>
+        <ul style="background:none; border: none; float:left; width: 180px;" kendo-menu="menuGeneral" k-data-source="menuData" k-orientation="kmnOrientacion" k-options="kmnOptions" k-on-select="kmnSelect(kendoEvent)"></ul>
+        <div class="col-11" style="text-align:center;">
+            <a href="@Url.Action("CerrarSesion", "Seguridad")">Cerrar Sesión</a>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var urlGlobal = '@Url.Content("~")';
+    kendo.culture("es-GT");
+
+    $("#mainSplitter").kendoSplitter({
+        orientation: "horizontal",
+        panes: [
+            { collapsible: true, min: '200px', max: '200px', size: '200px' }
+        ]
+    });
+
+    function CerrarSesion(){
+        $('.blocker').show();
+        window.location.href = '@Url.Action("CerrarSesion", "Seguridad")';
+    }
+</script>

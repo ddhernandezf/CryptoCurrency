@@ -1,0 +1,227 @@
+﻿@using CrpMon.Comunes.Modelos.Vistas
+
+@{
+    Layout = "~/Views/Shared/_IframeViewLayout.cshtml";
+}
+
+<script src="@Url.Content("~/CrpMonPortal/Angular/Generales/Funciones.js")"></script>
+<script src="@Url.Content("~/CrpMonPortal/Angular/Apps/EtherApp.js")"></script>
+<script src="@Url.Content("~/CrpMonPortal/Angular/Controllers/PerfilCtrl.js")"></script>
+
+<div class="col-12" ng-app="EtherApp" ng-controller="PerfilCtrl" style="background-color: white;">
+    <div class="col-12" style="text-align: center;">
+        <button class="k-button" ng-click="Refrescar();"><img src="@Url.Content("~/CrpMonPortal/Imagenes/Vistas/Refrescar.png")" /><span>{{ModeloVista.btnRefrescar}}</span></button>
+        <button class="k-button" ng-click="Cerrar()"><img src="@Url.Content("~/CrpMonPortal/Imagenes/Vistas/Cerrar.png")" /><span>{{ModeloVista.btnCerrar}}</span></button>
+    </div>
+    <div class="col-12">
+        <div class="col-6 contenedor-perfil">
+            <fieldset>
+                <legend>{{ModeloVista.infLblGeneral}}</legend>
+                <div class="info-contenedor">
+                    <div class="col-12">
+                        <div class="col-4">
+                            <label>{{ModeloVista.infLblPatrocinador}}</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="k-textbox PatrocinadorInput" style="width:100%;"
+                                   placeholder="{{ModeloVista.infLblPatrocinador}}" title="{{ModeloVista.infLblPatrocinador}}" value="{{PerfilModelo.Patrocinador}}" readonly />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="col-4">
+                            <label>{{ModeloVista.infLblUsuario}}</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="k-textbox UsuarioInput" style="width:100%;"
+                                   placeholder="{{ModeloVista.infLblUsuario}}" title="{{ModeloVista.infLblUsuario}}" value="{{PerfilModelo.Usuario}}" readonly />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="col-4">
+                            <label>{{ModeloVista.infLblNombre}}</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="k-textbox NombresInput" style="width:100%;"
+                                   placeholder="{{ModeloVista.infLblNombre}}" title="{{ModeloVista.infLblNombre}}" value="{{PerfilModelo.Nombres}}" readonly />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="col-4">
+                            <label>{{ModeloVista.infLblApellido}}</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="k-textbox ApellidosInput" style="width:100%;"
+                                   placeholder="{{ModeloVista.infLblApellido}}" title="{{ModeloVista.infLblApellido}}" value="{{PerfilModelo.Apellidos}}" readonly />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="col-4">
+                            <label>{{ModeloVista.infLblEmail}}</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="email" class="k-textbox EmailInput" style="width:100%;"
+                                   placeholder="{{ModeloVista.infLblEmail}}" title="{{ModeloVista.infLblEmail}}" value="{{PerfilModelo.Correo_Electronico}}" readonly />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="col-4">
+                            <label>{{ModeloVista.infLblCartera}}</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="k-textbox BilleteraInput" style="width:100%;"
+                                   placeholder="{{ModeloVista.infLblCartera}}" title="{{ModeloVista.infLblCartera}}" value="{{PerfilModelo.Cartera_Criptomoneda}}" readonly />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="col-4">
+                            <label>{{ModeloVista.infLblEstado}}</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="k-textbox EstadoInput" style="width:100%;"
+                                   placeholder="{{ModeloVista.infLblEstado}}" title="{{ModeloVista.infLblEstado}}" value="{{PerfilModelo.Des_Estado}}" readonly />
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="col-6 contenedor-perfil">
+            <fieldset>
+                <legend>{{ModeloVista.chplblGeneral}}</legend>
+                <form id="frmCambiarPass" name="frmCambiarPass" novalidate autocomplete="off">
+                    <div class="info-contenedor">
+                        <div class="col-6">
+                            <input ng-model="CPassModelo.vNombreUsuario" type="text" class="k-textbox UsuarioInput" id="txtPssUsuario" name="txtPssUsuario" style="width:100%;"
+                                   placeholder="{{ModeloVista.chplblUsuario}}" title="{{ModeloVista.chplblUsuario}}" required exclude-to="frmRegistro.txtPatrocinador" minlength="3" readonly />
+                            <div class="error">
+                                <span ng-show="frmCambiarPass.txtPssUsuario.$error.required">*</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <input ng-model="CPassModelo.vContrasena" type="password" class="k-textbox PassInput" id="txtPssContrasena" name="txtPssContrasena" style="width:100%;"
+                                   placeholder="{{ModeloVista.chplblPassword}}" title="{{ModeloVista.chplblPassword}}" required minlength="8" />
+                            <div class="error">
+                                <span ng-show="frmCambiarPass.txtPssContrasena.$error.required">*</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <input ng-model="CPassModelo.NuevaContrasena" type="password" class="k-textbox PassInput" id="txtPssNueva" name="txtPssNueva" style="width:100%;"
+                                   placeholder="{{ModeloVista.chplblPassNew}}" title="{{ModeloVista.chplblPassNew}}" required />
+                            <div class="error">
+                                <span ng-show="frmCambiarPass.txtPssNueva.$error.required">*</span>
+                                <span ng-show="frmCambiarPass.txtPssNueva.$error.minlength">{{ModeloVista.chplblPassNewMinLength}}</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <input ng-model="CPassModelo.ConfirmaContrasena" type="password" class="k-textbox PassInput" id="txtPssConfirma" name="txtPssConfirma" style="width:100%;"
+                                   placeholder="{{ModeloVista.chplblConfirm}}" title="{{ModeloVista.chplblConfirm}}" required compare-to="frmCambiarPass.txtPssNueva" minlength="8" />
+                            <div class="error">
+                                <span ng-show="frmCambiarPass.txtPssConfirma.$error.required">*</span>
+                                <span ng-show="frmCambiarPass.txtPssConfirma.$error.compareTo">{{ModeloVista.chplblConfirmExclude}}</span>
+                                <span ng-show="frmCambiarPass.txtPssConfirma.$error.minlength">{{ModeloVista.chplblConfirmMinLength}}</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="error" data-ng-bind="frmCambiarPassError"></div>
+                        </div>
+                        <div class="col-12 button-container">
+                            <button id="btnLogin" type="submit" class="k-button k-primary" ng-disabled="frmCambiarPass.$invalid" ng-click="CambiarPassword()">
+                                <img src="~/CrpMonPortal/Imagenes/Vistas/Editar.png" />
+                                <span>{{ModeloVista.chpbtnCambiar}}</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="col-6 contenedor-perfil">
+            <fieldset>
+                <legend>{{ModeloVista.chilblGeneral}}</legend>
+                <form id="frmCambiarInfo" name="frmCambiarInfo" novalidate autocomplete="off">
+                    <div class="info-contenedor">
+                        <div class="col-6">
+                            <input ng-model="CDataModelo.vNombreUsuario" type="text" class="k-textbox UsuarioInput" id="txtDatUsuario" name="txtDatUsuario" style="width:100%;"
+                                   placeholder="{{ModeloVista.chilblUsuario}}" title="{{ModeloVista.chilblUsuario}}" required exclude-to="frmRegistro.txtPatrocinador" minlength="3" readonly />
+                            <div class="error">
+                                <span ng-show="frmCambiarInfo.txtDatUsuario.$error.required">*</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <input ng-model="CDataModelo.vContrasena" type="password" class="k-textbox PassInput" id="txtDatContrasena" name="txtDatContrasena" style="width:100%;"
+                                   placeholder="{{ModeloVista.chilblPassword}}" title="{{ModeloVista.chilblPassword}}" required />
+                            <div class="error">
+                                <span ng-show="frmCambiarInfo.txtDatContrasena.$error.required">*</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <input ng-model="CDataModelo.Nombres" type="text" class="k-textbox NombresInput" id="txtDatNombres" name="txtDatNombres" style="width:100%;"
+                                   placeholder="{{ModeloVista.chilblNombres}}" title="{{ModeloVista.chilblNombres}}" required minlength="2" />
+                            <div class="error">
+                                <span ng-show="frmCambiarInfo.txtDatNombres.$error.required">*</span>
+                                <span ng-show="frmCambiarInfo.txtDatNombres.$error.minlength">{{ModeloVista.chilblNombresMinLength}}</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <input ng-model="CDataModelo.Apellidos" type="text" class="k-textbox ApellidosInput" id="txtDatApellidos" name="txtDatApellidos" style="width:100%;"
+                                   placeholder="{{ModeloVista.chilblApellidos}}" title="{{ModeloVista.chilblApellidos}}" required minlength="2" />
+                            <div class="error">
+                                <span ng-show="frmCambiarInfo.txtDatApellidos.$error.required">*</span>
+                                <span ng-show="frmCambiarInfo.txtDatApellidos.$error.minlength">{{ModeloVista.chilblApellidosMinLenght}}</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <input ng-model="CDataModelo.Correo" type="email" class="k-textbox EmailInput" id="txtDatEmail" name="txtDatEmail" style="width:100%;"
+                                   placeholder="{{ModeloVista.chilblEmail}}" title="{{ModeloVista.chilblEmail}}" required />
+                            <div class="error">
+                                <span ng-show="frmCambiarInfo.txtDatEmail.$error.required">*</span>
+                                <span ng-show="frmCambiarInfo.txtDatEmail.$error.email">{{ModeloVista.chilblEmailFormat}}</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <input ng-model="CDataModelo.Cartera" type="text" class="k-textbox BilleteraInput" id="txtDatCartera" name="txtDatCartera" style="width:100%;"
+                                   placeholder="{{ModeloVista.chilblCartera}}" title="{{ModeloVista.chilblCartera}}" required />
+                            <div class="error">
+                                <span ng-show="frmCambiarInfo.txtDatCartera.$error.required">*</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="error" data-ng-bind="frmCambiarInfoError"></div>
+                        </div>
+                        <div class="col-12 button-container">
+                            <button id="btnLogin" type="submit" class="k-button k-primary" ng-disabled="frmCambiarInfo.$invalid" ng-click="CambiarInfo()">
+                                <img src="~/CrpMonPortal/Imagenes/Vistas/Editar.png" />
+                                <span>{{ModeloVista.chibtnCambiar}}</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="col-6 contenedor-perfil">
+            <fieldset>
+                <legend>Paquete actual</legend>
+                <div class="col-11">
+                    <div class="contenedor-producto">
+                        <div class="celda">
+                            <img ng-src="{{PaqueteModelo.Img_Url}}" />
+                        </div>
+                        <div class="celda informacion">
+                            <div class="item nombre">{{ PaqueteModelo.Descripcion }}</div>
+                            <div class="item">{{ PaqueteModelo.Mensaje_Monto }}</div>
+                            <div class="item">{{ PaqueteModelo.Mensaje_Binario }}</div>
+                            <div class="item">{{ PaqueteModelo.Mensaje_Alerta }}</div>
+                            <div class="item">{{ PaqueteModelo.Mensaje_Dia }}</div>
+                            <div class="item ultimo">{{ PaqueteModelo.Mensaje_OutMax }}</div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+

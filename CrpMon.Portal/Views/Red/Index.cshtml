@@ -1,0 +1,103 @@
+﻿@using CrpMon.Comunes.Modelos.Vistas
+
+@{
+    Layout = "~/Views/Shared/_IframeViewLayout.cshtml";
+
+    CPersona persona = (CPersona)Session["USUARIO"];
+    int pierna = Convert.ToInt32(persona.Bit_Default);
+
+}
+
+<script src="@Url.Content("~/CrpMonPortal/Angular/Generales/Funciones.js")"></script>
+<script src="@Url.Content("~/CrpMonPortal/Angular/Apps/EtherApp.js")"></script>
+<script src="@Url.Content("~/CrpMonPortal/Angular/Controllers/RedCtrl.js")"></script>
+
+<div ng-app="EtherApp" ng-controller="RedCtrl">
+    <div class="col-12">
+        <ul id="btnPierna">
+            <li ng-bind="ModeloVista.lblIzquierda"></li>
+            <li ng-bind="ModeloVista.lblDerecha"></li>
+        </ul>
+    </div>
+    <div class="col-12" style="text-align: center;">
+        <button class="k-button" ng-click="Refrescar();"><img src="@Url.Content("~/CrpMonPortal/Imagenes/Vistas/Refrescar.png")" /><span>{{ModeloVista.btnRefrescar}}</span></button>
+        <button class="k-button" ng-click="Cerrar()"><img src="@Url.Content("~/CrpMonPortal/Imagenes/Vistas/Cerrar.png")" /><span>{{ModeloVista.btnCancelar}}</span></button>
+    </div>
+    <div class="col-12" style="text-align: center;">
+        <div class="contenedor-progress">
+            <div class="titulo-general">{{ModeloVista.lblPorcentaje}}</div>
+            <div class="progress-item" ng-repeat="dato in ModeloPorcentaje">
+                <div class="titulo" ng-show="{{dato.Activo == true}}">{{dato.Titulo}}</div>
+                <div class="valor" ng-show="{{dato.Activo == true}}">
+                    <div kendo-progress-bar k-min="0" k-max="100" style="width: 100%;" k-value="{{dato.Porcentaje}}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12" style="text-align: center; padding: 15px 0px; background-color: white;">
+        <input id="kslDiagramZoom" class="kslDiagramZoom" />
+    </div>
+    <div class="col-12" style="background-color: white;">
+        <div class="col-12" style="height: inherit;">
+            <div style="overflow:auto; width: inherit; height: inherit;">
+                <div id="kdmArbolAvl" kendo-diagram="kdmArbolAvl" k-options="kdmOpt" style="height:inherit;"></div>
+            </div>
+        </div>
+        <div kendo-window="kwnNodo"
+             k-options="kwnNodoOpt">
+            <div class="col-10">
+                <fieldset>
+                    <legend>{{ModeloActual.nombres}}</legend>
+                    <div class="info-contenedor">
+                        <div class="col-12">
+                            <div class="col-12">
+                                <label>{{ModeloVista.ventana.lblProductoActual}}</label>
+                            </div>
+                            <div class="col-11">
+                                <input type="text" class="k-textbox BilleteraInput" style="width:100%;" 
+                                       value="{{(ModeloActual.producto == 'null') ? MensajePendientePago : ModeloActual.producto}}" readonly />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="col-12">
+                                <label>{{ModeloVista.ventana.lblMontoAcumulado}}</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="k-textbox IzquierdaInput" style="width:45%; float:left; margin: 0px 5px;"
+                                       value="{{(ModeloActual.monto_acumulado_L == null) ? 0 : ModeloActual.monto_acumulado_L}}" readonly />
+                                <input type="text" class="k-textbox DerechaInput" style="width:45%; float:left; margin: 0px 5px;"
+                                       value="{{(ModeloActual.monto_acumulado_R == null) ? 0 : ModeloActual.monto_acumulado_R}}" readonly />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="col-12">
+                                <label>{{ModeloVista.ventana.lblMontoDiario}}</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="k-textbox IzquierdaInput" style="width:45%; float:left; margin: 0px 5px;"
+                                       value="{{(ModeloActual.monto_diario_L == null) ? 0 : ModeloActual.monto_diario_L}}" readonly />
+                                <input type="text" class="k-textbox DerechaInput" style="width:45%; float:left; margin: 0px 5px;"
+                                       value="{{(ModeloActual.monto_diario_R == null) ? 0 : ModeloActual.monto_diario_R}}" readonly />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="col-12">
+                                <label>{{ModeloVista.ventana.lblMontoDirecto}}</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="k-textbox IzquierdaInput" style="width:45%; float:left; margin: 0px 5px;"
+                                       value="{{(ModeloActual.monto_directo_L == null) ? 0 : ModeloActual.monto_directo_L}}" readonly />
+                                <input type="text" class="k-textbox DerechaInput" style="width:45%; float:left; margin: 0px 5px;"
+                                       value="{{(ModeloActual.monto_directo_R == null) ? 0 : ModeloActual.monto_directo_R}}" readonly />
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var intPierna = @pierna;
+</script>

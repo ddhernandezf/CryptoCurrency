@@ -1,0 +1,30 @@
+﻿@using CrpMon.Comunes.Modelos.Vistas
+@using CrpMon.Comunes.Modelos.Objetos
+
+@{
+    CPersona persona = (CPersona)Session["USUARIO"];
+    CTransaccion transaccion = (CTransaccion)Session["TRANSACCION"];
+    string nombre = persona.Nombres + " " + persona.Apellidos;
+    
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<script src="@Url.Content("~/CrpMonPortal/Angular/Apps/LoginApp.js")"></script>
+<script src="@Url.Content("~/CrpMonPortal/Angular/Controllers/ConfirmarCtrl.js")"></script>
+
+<div class="login-box confirmar" ng-controller="ConfirmarCtrl">
+    <div class="logo-enterprise">
+        <img src="~/CrpMonPortal/Imagenes/logo.png" />
+    </div>
+    <div class="form-registro">
+        <div class="legend">{{ModeloVista.lblTitulo}}</div>
+        <div class="legend">{{ModeloVista.lblSubtitulo}}</div>
+        <div class="qr-viewer">
+            <img ng-src="{{Data.Monedero_Qrcode_Url}}" border="0" style="display: block;">
+        </div>
+        <div class="legend" style="text-align:left;"><strong>{{ModeloVista.lblTotal}} </strong> {{Data.Monedero_Amount}} (ETH)</div>
+        <div class="legend" style="text-align:left;"><strong>{{ModeloVista.lblTiempo}} </strong> {{Data.TiempoAproximado}}</div>
+        <div class="legend" style="text-align:left;"><strong>{{ModeloVista.lblDireccion}} </strong> {{Data.Monedero_Address}}</div>
+        <div class="error">{{msgError}}</div>
+    </div>
+</div>

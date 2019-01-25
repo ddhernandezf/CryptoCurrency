@@ -1,0 +1,120 @@
+﻿@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    string patrocinador = (TempData["PATROCINADOR"] == null) ? null : TempData["PATROCINADOR"].ToString();
+}
+
+<script src="@Url.Content("~/CrpMonPortal/Angular/Generales/Funciones.js")"></script>
+<script src="@Url.Content("~/CrpMonPortal/Angular/Apps/LoginApp.js")"></script>
+<script src="@Url.Content("~/CrpMonPortal/Angular/Controllers/RegistroCtrl.js")"></script>
+
+<div class="login-box" ng-controller="RegistroCtrl">
+    <div class="language-container">
+        <div class="col-4 float-right">
+            <select name="kddIdioma" kendo-drop-down-list="kddIdioma"
+                    k-data-source="kddIdiomaDS"
+                    k-options="kddIdiomaOPC"
+                    style="width: 100%"></select>
+        </div>
+    </div>
+    <div class="logo-enterprise">
+        <img src="~/CrpMonPortal/Imagenes/logo.png" />
+    </div>
+    <div class="form-registro">
+        <form name="frmRegistro" novalidate autocomplete="off">
+            <div class="col-6">
+                @if (string.IsNullOrEmpty(patrocinador) || string.IsNullOrWhiteSpace(patrocinador))
+                {
+                    <input ng-model="ModeloRegistro.vPatrocinador" type="text" class="k-textbox PatrocinadorInput" id="txtPatrocinador" name="txtPatrocinador" style="width:100%;"
+                           placeholder="{{ModeloVista.lblPatrocinador}}" title="Patrocinador" required minlength="3" />
+                }
+                else
+                {
+                    <input ng-model="ModeloRegistro.vPatrocinador" type="text" class="k-textbox PatrocinadorInput" id="txtPatrocinador" name="txtPatrocinador" style="width:100%;"
+                           placeholder="{{ModeloVista.lblPatrocinador}}" title="Patrocinador" required minlength="3" readonly />
+                }
+                <div class="error">
+                    <span ng-show="frmRegistro.txtPatrocinador.$error.required">*</span>
+                    <span ng-show="frmRegistro.txtPatrocinador.$error.minlength">{{ModeloVista.vldPatrocinadorMinLength}}</span>
+                </div>
+            </div>
+            <div class="col-6">
+                <input ng-model="ModeloRegistro.vNombreUsuario" type="text" class="k-textbox UsuarioInput" id="txtUsuario" name="txtUsuario" style="width:100%;" 
+                       placeholder="{{ModeloVista.lblUsuario}}" title="Usuario" required exclude-to="frmRegistro.txtPatrocinador" minlength="3" />
+                <div class="error">
+                    <span ng-show="frmRegistro.txtUsuario.$error.required">*</span>
+                    <span ng-show="frmRegistro.txtUsuario.$error.excludeTo">{{ModeloVista.vldUsuarioMinExcludeTo}}</span>
+                    <span ng-show="frmRegistro.txtUsuario.$error.minlength">{{ModeloVista.vldUsuarioMinLength}}</span>
+                </div>
+            </div>
+            <div class="col-6">
+                <input ng-model="ModeloRegistro.vNombres" type="text" class="k-textbox NombresInput" id="txtNombres" name="txtNombres" style="width:100%;" 
+                       placeholder="{{ModeloVista.lblNombres}}" title="Nombres" required minlength="2" />
+                <div class="error">
+                    <span ng-show="frmRegistro.txtNombres.$error.required">*</span>
+                    <span ng-show="frmRegistro.txtNombres.$error.minlength">{{ModeloVista.vldNombresMinLength}}</span>
+                </div>
+            </div>
+            <div class="col-6">
+                <input ng-model="ModeloRegistro.vApellidos" type="text" class="k-textbox ApellidosInput" id="txtApellidos" name="txtApellidos" style="width:100%;" 
+                       placeholder="{{ModeloVista.lblApellidos}}" title="Apellidos" required minlength="2" />
+                <div class="error">
+                    <span ng-show="frmRegistro.txtApellidos.$error.required">*</span>
+                    <span ng-show="frmRegistro.txtApellidos.$error.minlength">{{ModeloVista.vldApellidosMinLength}}</span>
+                </div>
+            </div>
+            <div class="col-12">
+                <input ng-model="ModeloRegistro.vCorreoElectronico" type="email" class="k-textbox EmailInput" id="txtEmail" name="txtEmail" style="width:100%;" 
+                       placeholder="{{ModeloVista.lblEmail}}" title="Correo electrónico" required />
+                <div class="error">
+                    <span ng-show="frmRegistro.txtEmail.$error.required">*</span>
+                    <span ng-show="frmRegistro.txtEmail.$error.email">{{ModeloVista.vldEmailFormat}}</span>
+                </div>
+            </div>
+            <div class="col-12">
+                <input ng-model="ModeloRegistro.vCarteraCryptoMoneda" type="text" class="k-textbox BilleteraInput" id="txtCartera" name="txtCartera" style="width:100%;" 
+                       placeholder="{{ModeloVista.lblCartera}}" title="Cartera Criptomoneda" required />
+                <div class="error">
+                    <span ng-show="frmRegistro.txtCartera.$error.required">*</span>
+                </div>
+            </div>
+            <div class="col-6">
+                <input ng-model="ModeloRegistro.vContrasena" type="password" class="k-textbox PassInput" id="txtContrasena" name="txtContrasena" style="width:100%;" 
+                       placeholder="{{ModeloVista.lblPassword}}" title="Contraseña" required minlength="8" />
+                <div class="error">
+                    <span ng-show="frmRegistro.txtContrasena.$error.required">*</span>
+                    <span ng-show="frmRegistro.txtContrasena.$error.minlength">{{ModeloVista.vldPasswordMinLength}}</span>
+                </div>
+            </div>
+            <div class="col-6">
+                <input ng-model="ModeloRegistro.vConfirmaContrasena" type="password" class="k-textbox PassInput" id="txtConfirma" name="txtConfirma" style="width:100%;" 
+                       placeholder="{{ModeloVista.lblConfirmar}}" title="Confirmar" required compare-to="frmRegistro.txtContrasena" minlength="8" />
+                <div class="error">
+                    <span ng-show="frmRegistro.txtConfirma.$error.required">*</span>
+                    <span ng-show="frmRegistro.txtConfirma.$error.compareTo">{{ModeloVista.vldConfirmarExcludeTo}}</span>
+                    <span ng-show="frmRegistro.txtConfirma.$error.minlength">{{ModeloVista.vldConfirmarMinLength}}</span>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="error" data-ng-bind="RegistroError"></div>
+            </div>
+            <div class="col-12 button-container">
+                <button id="btnLogin" type="submit" class="k-button k-primary" ng-disabled="frmRegistro.$invalid" ng-click="Registrar()" >
+                    <img src="~/CrpMonPortal/Imagenes/Vistas/InicioSesion.png" />
+                    <span>{{ModeloVista.btnRegistrar}}</span>
+                </button>
+                <button type="button" class="k-button" onclick="javascript:Cancelar();" >
+                    <span>{{ModeloVista.btnCancelar}}</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    var PatrocinadorAsignador = '@patrocinador';
+
+    function Cancelar() {
+        $('.blocker').show();
+        window.location.href = '@Url.Action("IniciarSesion","Seguridad")';
+    }
+</script>

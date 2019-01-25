@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CripMonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="fLast" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar(max)">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Bit_Default" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="fMonedero_Amount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="numeric">
+          <Parameter Name="ID_Usuario" Type="int" Mode="In" />
+          <Parameter Name="Bit_Value" Type="bit" Mode="In" />
+          <Parameter Name="Opcion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PA_Actualiza_Estado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="pID_Transaccion_Monedero" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PA_Actualiza_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="pClave" Type="varchar" Mode="In" />
+          <Parameter Name="pClaveNueva" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PA_Actualiza_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="pClave" Type="varchar" Mode="In" />
+          <Parameter Name="Nombres" Type="varchar" Mode="In" />
+          <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+          <Parameter Name="Correo_Electronico" Type="varchar" Mode="In" />
+          <Parameter Name="Cartera_Criptomoneda" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PA_bsc_Empresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pEmpresa" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PA_bsc_Idioma" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Idioma" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="PA_bsc_Mensaje" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pEstado" Type="tinyint" Mode="In" />
+          <Parameter Name="pUsuario" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="PA_bsc_Menu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Idioma" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="PA_bsc_Notificaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="PA_bsc_Porcentajes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="pIdioma" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="PA_bsc_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Idioma" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="PA_bsc_Transaccion_1_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUsuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PA_bsc_Transacciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Usuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PA_bsc_Vista" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pVista" Type="varchar" Mode="In" />
+          <Parameter Name="pIdioma" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="PA_Gancias_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUsuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PA_Ins_Usuario_Arbol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUsuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PA_MensajeLeido" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pMensaje" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="PA_PaqueteActual" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="Idioma" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="PA_Transaccion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pTransaccion_Monedero" Type="varchar" Mode="In" />
+          <Parameter Name="pMonedero" Type="int" Mode="In" />
+          <Parameter Name="pObservacion_1" Type="varbinary" Mode="In" />
+          <Parameter Name="pUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="pjsonResult" Type="varchar" Mode="In" />
+          <Parameter Name="pProducto" Type="int" Mode="In" />
+          <Parameter Name="pAmount" Type="varchar" Mode="In" />
+          <Parameter Name="pTimeOut" Type="int" Mode="In" />
+          <Parameter Name="pStatus_Url" Type="varchar" Mode="In" />
+          <Parameter Name="pQrcode_Url" Type="varchar" Mode="In" />
+          <Parameter Name="pAddress" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PA_Usuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="pNombres" Type="varchar" Mode="In" />
+          <Parameter Name="pApellidos" Type="varchar" Mode="In" />
+          <Parameter Name="pCorreo_Electronico" Type="varchar" Mode="In" />
+          <Parameter Name="pClave" Type="varchar" Mode="In" />
+          <Parameter Name="pUsuario_Padre" Type="varchar" Mode="In" />
+          <Parameter Name="pCartera_Criptomoneda" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PA_Usuario_Arbol" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUsuario" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PA_Usuario_Auth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="pClave" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="PA_Usuario_Bit_Default" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pUsuario" Type="varchar" Mode="In" />
+          <Parameter Name="pBit_Default" Type="bit" Mode="In" />
+        </Function>
+        <EntityContainer Name="CripMonModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CripMonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CripMonEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="PA_Actualiza_Estado">
+            <Parameter Name="pUsuario" Mode="In" Type="String" />
+            <Parameter Name="pID_Transaccion_Monedero" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_Actualiza_Password">
+            <Parameter Name="pUsuario" Mode="In" Type="String" />
+            <Parameter Name="pClave" Mode="In" Type="String" />
+            <Parameter Name="pClaveNueva" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_Actualiza_Usuario">
+            <Parameter Name="pUsuario" Mode="In" Type="String" />
+            <Parameter Name="pClave" Mode="In" Type="String" />
+            <Parameter Name="Nombres" Mode="In" Type="String" />
+            <Parameter Name="Apellidos" Mode="In" Type="String" />
+            <Parameter Name="Correo_Electronico" Mode="In" Type="String" />
+            <Parameter Name="Cartera_Criptomoneda" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_bsc_Empresa" ReturnType="Collection(CripMonModel.PA_bsc_Empresa_Result)">
+            <Parameter Name="pEmpresa" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PA_bsc_Idioma" ReturnType="Collection(CripMonModel.PA_bsc_Idioma_Result)">
+            <Parameter Name="Idioma" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="PA_bsc_Mensaje" ReturnType="Collection(CripMonModel.PA_bsc_Mensaje_Result)">
+            <Parameter Name="pEstado" Mode="In" Type="Byte" />
+            <Parameter Name="pUsuario" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="PA_bsc_Menu" ReturnType="Collection(CripMonModel.PA_bsc_Menu_Result)">
+            <Parameter Name="Idioma" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="PA_bsc_Notificaciones" ReturnType="Collection(CripMonModel.PA_bsc_Notificaciones_Result)" />
+          <FunctionImport Name="PA_bsc_Porcentajes" ReturnType="Collection(CripMonModel.PA_bsc_Porcentajes_Result)">
+            <Parameter Name="pUsuario" Mode="In" Type="String" />
+            <Parameter Name="pIdioma" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="PA_bsc_Producto" ReturnType="Collection(CripMonModel.PA_bsc_Producto_Result)">
+            <Parameter Name="Idioma" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="PA_bsc_Transaccion_1_Usuario" ReturnType="Collection(CripMonModel.PA_bsc_Transaccion_1_Usuario_Result)">
+            <Parameter Name="pUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_bsc_Transacciones" ReturnType="Collection(CripMonModel.PA_bsc_Transacciones_Result)">
+            <Parameter Name="Usuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_bsc_Vista" ReturnType="Collection(CripMonModel.PA_bsc_Vista_Result)">
+            <Parameter Name="pVista" Mode="In" Type="String" />
+            <Parameter Name="pIdioma" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="PA_Gancias_Usuario" ReturnType="Collection(CripMonModel.PA_Gancias_Usuario_Result)">
+            <Parameter Name="pUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_Ins_Usuario_Arbol">
+            <Parameter Name="pUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_MensajeLeido">
+            <Parameter Name="pMensaje" Mode="In" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="PA_PaqueteActual" ReturnType="Collection(CripMonModel.PA_PaqueteActual_Result)">
+            <Parameter Name="pUsuario" Mode="In" Type="String" />
+            <Parameter Name="Idioma" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="PA_Transaccion" ReturnType="Collection(CripMonModel.PA_Transaccion_Result)">
+            <Parameter Name="pTransaccion_Monedero" Mode="In" Type="String" />
+            <Parameter Name="pMonedero" Mode="In" Type="Int32" />
+            <Parameter Name="pObservacion_1" Mode="In" Type="Binary" />
+            <Parameter Name="pUsuario" Mode="In" Type="String" />
+            <Parameter Name="pjsonResult" Mode="In" Type="String" />
+            <Parameter Name="pProducto" Mode="In" Type="Int32" />
+            <Parameter Name="pAmount" Mode="In" Type="String" />
+            <Parameter Name="pTimeOut" Mode="In" Type="Int32" />
+            <Parameter Name="pStatus_Url" Mode="In" Type="String" />
+            <Parameter Name="pQrcode_Url" Mode="In" Type="String" />
+            <Parameter Name="pAddress" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_Usuario">
+            <Parameter Name="pUsuario" Mode="In" Type="String" />
+            <Parameter Name="pNombres" Mode="In" Type="String" />
+            <Parameter Name="pApellidos" Mode="In" Type="String" />
+            <Parameter Name="pCorreo_Electronico" Mode="In" Type="String" />
+            <Parameter Name="pClave" Mode="In" Type="String" />
+            <Parameter Name="pUsuario_Padre" Mode="In" Type="String" />
+            <Parameter Name="pCartera_Criptomoneda" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_Usuario_Arbol" ReturnType="Collection(String)">
+            <Parameter Name="pUsuario" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_Usuario_Auth" ReturnType="Collection(CripMonModel.PA_Usuario_Auth_Result)">
+            <Parameter Name="pUsuario" Mode="In" Type="String" />
+            <Parameter Name="pClave" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PA_Usuario_Bit_Default">
+            <Parameter Name="pUsuario" Mode="In" Type="String" />
+            <Parameter Name="pBit_Default" Mode="In" Type="Boolean" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="PA_bsc_Empresa_Result">
+          <Property Type="Int32" Name="Empresa" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Llave_Privada" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Llave_Publica" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Correo_Electronico" Nullable="true" MaxLength="50" />
+          <Property Type="Byte" Name="Estado" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="PA_bsc_Idioma_Result">
+          <Property Type="Byte" Name="Idioma" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Imagen" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="PA_bsc_Mensaje_Result">
+          <Property Type="Int64" Name="Mensaje" Nullable="false" />
+          <Property Type="Byte" Name="Estado" Nullable="false" />
+          <Property Type="Int64" Name="Usuario" Nullable="false" />
+          <Property Type="String" Name="Asunto" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Contenido" Nullable="false" />
+          <Property Type="DateTime" Name="FechaEmision" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="FechaLectura" Nullable="true" Precision="23" />
+          <Property Type="Byte" Name="Estado_Objeto" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="PA_bsc_Menu_Result">
+          <Property Type="Byte" Name="Menu" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Accion" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Controlador" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="imageUrl" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="PA_bsc_Notificaciones_Result">
+          <Property Type="Int32" Name="IdNotificacion" Nullable="false" />
+          <Property Type="Byte" Name="Estado" Nullable="false" />
+          <Property Type="String" Name="NombreEstado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Titulo" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Contenido" Nullable="false" MaxLength="2000" />
+          <Property Type="DateTime" Name="FechaInicio" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="FechaFin" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="PA_bsc_Porcentajes_Result">
+          <Property Type="Boolean" Name="Activo" Nullable="true" />
+          <Property Type="String" Name="Titulo" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="Porcentaje" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="PA_bsc_Producto_Result">
+          <Property Type="Int32" Name="Producto" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="Monto" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="Mensaje_Monto" Nullable="false" />
+          <Property Type="Int32" Name="Cantidad_Binario" Nullable="true" />
+          <Property Type="String" Name="Mensaje_Binario" Nullable="false" MaxLength="113" />
+          <Property Type="Int32" Name="Cantidad_Alerta" Nullable="true" />
+          <Property Type="String" Name="Mensaje_Alerta" Nullable="false" MaxLength="113" />
+          <Property Type="Int32" Name="Periodo_Dia" Nullable="true" />
+          <Property Type="String" Name="Mensaje_Dia" Nullable="false" MaxLength="113" />
+          <Property Type="String" Name="Img_Url" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Out_Max" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Mensaje_OutMax" Nullable="false" MaxLength="113" />
+        </ComplexType>
+        <ComplexType Name="PA_bsc_Transaccion_1_Usuario_Result">
+          <Property Type="Int64" Name="Consecutivo_Interno" Nullable="false" />
+          <Property Type="String" Name="Transaccion_Monedero" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="Monedero" Nullable="false" />
+          <Property Type="Binary" Name="Observacion_1" Nullable="true" MaxLength="100" />
+          <Property Type="Int64" Name="ID_Usuario" Nullable="false" />
+          <Property Type="String" Name="Monedero_jsonResult" Nullable="true" MaxLength="800" />
+          <Property Type="DateTime" Name="Fecha_Hora" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Producto" Nullable="false" />
+          <Property Type="Byte" Name="Estado" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha_Ini" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="Fecha_Fin" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Monedero_Amount" Nullable="true" />
+          <Property Type="Int32" Name="Monedero_TimeOut" Nullable="true" />
+          <Property Type="String" Name="Monedero_Status_Url" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Monedero_Qrcode_Url" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Monedero_Address" Nullable="true" MaxLength="400" />
+        </ComplexType>
+        <ComplexType Name="PA_bsc_Transacciones_Result">
+          <Property Type="Int64" Name="Consecutivo_Interno" Nullable="false" />
+          <Property Type="String" Name="Transaccion_Monedero" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="Monedero" Nullable="false" />
+          <Property Type="Binary" Name="Observacion_1" Nullable="true" MaxLength="100" />
+          <Property Type="Int64" Name="ID_Usuario" Nullable="false" />
+          <Property Type="String" Name="Monedero_jsonResult" Nullable="true" MaxLength="800" />
+          <Property Type="DateTime" Name="Fecha_Hora" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Producto" Nullable="false" />
+          <Property Type="Byte" Name="Estado" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha_Ini" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="Fecha_Fin" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Monedero_Amount" Nullable="true" />
+          <Property Type="Int32" Name="Monedero_TimeOut" Nullable="true" />
+          <Property Type="String" Name="Monedero_Status_Url" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Monedero_Qrcode_Url" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Monedero_Address" Nullable="true" MaxLength="400" />
+          <Property Type="String" Name="NombreEstado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NombreProducto" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ProductoImagen" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="PA_bsc_Vista_Result">
+          <Property Type="Byte" Name="Vista" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+          <Property Type="Byte" Name="Idioma" Nullable="false" />
+          <Property Type="String" Name="NombreIdioma" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ObjetoJson" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="PA_Gancias_Usuario_Result">
+          <Property Type="String" Name="GananciaIzquierda" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="GananciaDerecha" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="GananciaTotal" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="PA_PaqueteActual_Result">
+          <Property Type="Int32" Name="Producto" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="Monto" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="Mensaje_Monto" Nullable="false" />
+          <Property Type="Int32" Name="Cantidad_Binario" Nullable="true" />
+          <Property Type="String" Name="Mensaje_Binario" Nullable="false" MaxLength="113" />
+          <Property Type="Int32" Name="Cantidad_Alerta" Nullable="true" />
+          <Property Type="String" Name="Mensaje_Alerta" Nullable="false" MaxLength="113" />
+          <Property Type="Int32" Name="Periodo_Dia" Nullable="true" />
+          <Property Type="String" Name="Mensaje_Dia" Nullable="false" MaxLength="113" />
+          <Property Type="String" Name="Img_Url" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Out_Max" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="Mensaje_OutMax" Nullable="false" MaxLength="113" />
+        </ComplexType>
+        <ComplexType Name="PA_Transaccion_Result">
+          <Property Type="Int64" Name="Consecutivo_Interno" Nullable="false" />
+          <Property Type="String" Name="Transaccion_Monedero" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="Monedero" Nullable="false" />
+          <Property Type="Binary" Name="Observacion_1" Nullable="true" MaxLength="100" />
+          <Property Type="Int64" Name="ID_Usuario" Nullable="false" />
+          <Property Type="String" Name="Monedero_jsonResult" Nullable="true" MaxLength="800" />
+          <Property Type="DateTime" Name="Fecha_Hora" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Producto" Nullable="false" />
+          <Property Type="Byte" Name="Estado" Nullable="false" />
+          <Property Type="DateTime" Name="Fecha_Ini" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="Fecha_Fin" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Monedero_Amount" Nullable="true" />
+          <Property Type="Int32" Name="Monedero_TimeOut" Nullable="true" />
+          <Property Type="String" Name="Monedero_Status_Url" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Monedero_Qrcode_Url" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Monedero_Address" Nullable="true" MaxLength="400" />
+        </ComplexType>
+        <ComplexType Name="PA_Usuario_Auth_Result">
+          <Property Type="Int64" Name="ID_Usuario" Nullable="false" />
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Nombres" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Apellidos" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Correo_Electronico" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Cartera_Criptomoneda" Nullable="true" MaxLength="400" />
+          <Property Type="Int64" Name="Nivel" Nullable="false" />
+          <Property Type="Boolean" Name="Bit_Default" Nullable="false" />
+          <Property Type="String" Name="Des_Estado" Nullable="false" MaxLength="50" />
+          <Property Type="Int64" Name="ID_Usuario_Padre" Nullable="true" />
+          <Property Type="String" Name="Patrocinador" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CripMonModelStoreContainer" CdmEntityContainer="CripMonEntities" >
+          <FunctionImportMapping FunctionImportName="PA_Actualiza_Estado" FunctionName="CripMonModel.Store.PA_Actualiza_Estado" />
+          <FunctionImportMapping FunctionImportName="PA_Actualiza_Password" FunctionName="CripMonModel.Store.PA_Actualiza_Password" />
+          <FunctionImportMapping FunctionImportName="PA_Actualiza_Usuario" FunctionName="CripMonModel.Store.PA_Actualiza_Usuario" />
+          <FunctionImportMapping FunctionImportName="PA_bsc_Empresa" FunctionName="CripMonModel.Store.PA_bsc_Empresa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CripMonModel.PA_bsc_Empresa_Result">
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Llave_Privada" ColumnName="Llave_Privada" />
+                <ScalarProperty Name="Llave_Publica" ColumnName="Llave_Publica" />
+                <ScalarProperty Name="Correo_Electronico" ColumnName="Correo_Electronico" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_bsc_Idioma" FunctionName="CripMonModel.Store.PA_bsc_Idioma">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CripMonModel.PA_bsc_Idioma_Result">
+                <ScalarProperty Name="Idioma" ColumnName="Idioma" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_bsc_Mensaje" FunctionName="CripMonModel.Store.PA_bsc_Mensaje">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CripMonModel.PA_bsc_Mensaje_Result">
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Asunto" ColumnName="Asunto" />
+                <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+                <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+                <ScalarProperty Name="FechaLectura" ColumnName="FechaLectura" />
+                <ScalarProperty Name="Estado_Objeto" ColumnName="Estado_Objeto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_bsc_Menu" FunctionName="CripMonModel.Store.PA_bsc_Menu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CripMonModel.PA_bsc_Menu_Result">
+                <ScalarProperty Name="Menu" ColumnName="Menu" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Accion" ColumnName="Accion" />
+                <ScalarProperty Name="Controlador" ColumnName="Controlador" />
+                <ScalarProperty Name="imageUrl" ColumnName="imageUrl" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_bsc_Notificaciones" FunctionName="CripMonModel.Store.PA_bsc_Notificaciones">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CripMonModel.PA_bsc_Notificaciones_Result">
+                <ScalarProperty Name="IdNotificacion" ColumnName="IdNotificacion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="NombreEstado" ColumnName="NombreEstado" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_bsc_Porcentajes" FunctionName="CripMonModel.Store.PA_bsc_Porcentajes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CripMonModel.PA_bsc_Porcentajes_Result">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_bsc_Producto" FunctionName="CripMonModel.Store.PA_bsc_Producto">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CripMonModel.PA_bsc_Producto_Result">
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Mensaje_Monto" ColumnName="Mensaje_Monto" />
+                <ScalarProperty Name="Cantidad_Binario" ColumnName="Cantidad_Binario" />
+                <ScalarProperty Name="Mensaje_Binario" ColumnName="Mensaje_Binario" />
+                <ScalarProperty Name="Cantidad_Alerta" ColumnName="Cantidad_Alerta" />
+                <ScalarProperty Name="Mensaje_Alerta" ColumnName="Mensaje_Alerta" />
+                <ScalarProperty Name="Periodo_Dia" ColumnName="Periodo_Dia" />
+                <ScalarProperty Name="Mensaje_Dia" ColumnName="Mensaje_Dia" />
+                <ScalarProperty Name="Img_Url" ColumnName="Img_Url" />
+                <ScalarProperty Name="Out_Max" ColumnName="Out_Max" />
+                <ScalarProperty Name="Mensaje_OutMax" ColumnName="Mensaje_OutMax" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_bsc_Transaccion_1_Usuario" FunctionName="CripMonModel.Store.PA_bsc_Transaccion_1_Usuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CripMonModel.PA_bsc_Transaccion_1_Usuario_Result">
+                <ScalarProperty Name="Consecutivo_Interno" ColumnName="Consecutivo_Interno" />
+                <ScalarProperty Name="Transaccion_Monedero" ColumnName="Transaccion_Monedero" />
+                <ScalarProperty Name="Monedero" ColumnName="Monedero" />
+                <ScalarProperty Name="Observacion_1" ColumnName="Observacion_1" />
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+                <ScalarProperty Name="Monedero_jsonResult" ColumnName="Monedero_jsonResult" />
+                <ScalarProperty Name="Fecha_Hora" ColumnName="Fecha_Hora" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fecha_Ini" ColumnName="Fecha_Ini" />
+                <ScalarProperty Name="Fecha_Fin" ColumnName="Fecha_Fin" />
+                <ScalarProperty Name="Monedero_Amount" ColumnName="Monedero_Amount" />
+                <ScalarProperty Name="Monedero_TimeOut" ColumnName="Monedero_TimeOut" />
+                <ScalarProperty Name="Monedero_Status_Url" ColumnName="Monedero_Status_Url" />
+                <ScalarProperty Name="Monedero_Qrcode_Url" ColumnName="Monedero_Qrcode_Url" />
+                <ScalarProperty Name="Monedero_Address" ColumnName="Monedero_Address" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_bsc_Transacciones" FunctionName="CripMonModel.Store.PA_bsc_Transacciones">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CripMonModel.PA_bsc_Transacciones_Result">
+                <ScalarProperty Name="Consecutivo_Interno" ColumnName="Consecutivo_Interno" />
+                <ScalarProperty Name="Transaccion_Monedero" ColumnName="Transaccion_Monedero" />
+                <ScalarProperty Name="Monedero" ColumnName="Monedero" />
+                <ScalarProperty Name="Observacion_1" ColumnName="Observacion_1" />
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+                <ScalarProperty Name="Monedero_jsonResult" ColumnName="Monedero_jsonResult" />
+                <ScalarProperty Name="Fecha_Hora" ColumnName="Fecha_Hora" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fecha_Ini" ColumnName="Fecha_Ini" />
+                <ScalarProperty Name="Fecha_Fin" ColumnName="Fecha_Fin" />
+                <ScalarProperty Name="Monedero_Amount" ColumnName="Monedero_Amount" />
+                <ScalarProperty Name="Monedero_TimeOut" ColumnName="Monedero_TimeOut" />
+                <ScalarProperty Name="Monedero_Status_Url" ColumnName="Monedero_Status_Url" />
+                <ScalarProperty Name="Monedero_Qrcode_Url" ColumnName="Monedero_Qrcode_Url" />
+                <ScalarProperty Name="Monedero_Address" ColumnName="Monedero_Address" />
+                <ScalarProperty Name="NombreEstado" ColumnName="NombreEstado" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="ProductoImagen" ColumnName="ProductoImagen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_bsc_Vista" FunctionName="CripMonModel.Store.PA_bsc_Vista">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CripMonModel.PA_bsc_Vista_Result">
+                <ScalarProperty Name="Vista" ColumnName="Vista" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Idioma" ColumnName="Idioma" />
+                <ScalarProperty Name="NombreIdioma" ColumnName="NombreIdioma" />
+                <ScalarProperty Name="ObjetoJson" ColumnName="ObjetoJson" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_Gancias_Usuario" FunctionName="CripMonModel.Store.PA_Gancias_Usuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CripMonModel.PA_Gancias_Usuario_Result">
+                <ScalarProperty Name="GananciaIzquierda" ColumnName="GananciaIzquierda" />
+                <ScalarProperty Name="GananciaDerecha" ColumnName="GananciaDerecha" />
+                <ScalarProperty Name="GananciaTotal" ColumnName="GananciaTotal" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_Ins_Usuario_Arbol" FunctionName="CripMonModel.Store.PA_Ins_Usuario_Arbol" />
+          <FunctionImportMapping FunctionImportName="PA_MensajeLeido" FunctionName="CripMonModel.Store.PA_MensajeLeido" />
+          <FunctionImportMapping FunctionImportName="PA_PaqueteActual" FunctionName="CripMonModel.Store.PA_PaqueteActual">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CripMonModel.PA_PaqueteActual_Result">
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Mensaje_Monto" ColumnName="Mensaje_Monto" />
+                <ScalarProperty Name="Cantidad_Binario" ColumnName="Cantidad_Binario" />
+                <ScalarProperty Name="Mensaje_Binario" ColumnName="Mensaje_Binario" />
+                <ScalarProperty Name="Cantidad_Alerta" ColumnName="Cantidad_Alerta" />
+                <ScalarProperty Name="Mensaje_Alerta" ColumnName="Mensaje_Alerta" />
+                <ScalarProperty Name="Periodo_Dia" ColumnName="Periodo_Dia" />
+                <ScalarProperty Name="Mensaje_Dia" ColumnName="Mensaje_Dia" />
+                <ScalarProperty Name="Img_Url" ColumnName="Img_Url" />
+                <ScalarProperty Name="Out_Max" ColumnName="Out_Max" />
+                <ScalarProperty Name="Mensaje_OutMax" ColumnName="Mensaje_OutMax" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_Transaccion" FunctionName="CripMonModel.Store.PA_Transaccion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CripMonModel.PA_Transaccion_Result">
+                <ScalarProperty Name="Consecutivo_Interno" ColumnName="Consecutivo_Interno" />
+                <ScalarProperty Name="Transaccion_Monedero" ColumnName="Transaccion_Monedero" />
+                <ScalarProperty Name="Monedero" ColumnName="Monedero" />
+                <ScalarProperty Name="Observacion_1" ColumnName="Observacion_1" />
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+                <ScalarProperty Name="Monedero_jsonResult" ColumnName="Monedero_jsonResult" />
+                <ScalarProperty Name="Fecha_Hora" ColumnName="Fecha_Hora" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fecha_Ini" ColumnName="Fecha_Ini" />
+                <ScalarProperty Name="Fecha_Fin" ColumnName="Fecha_Fin" />
+                <ScalarProperty Name="Monedero_Amount" ColumnName="Monedero_Amount" />
+                <ScalarProperty Name="Monedero_TimeOut" ColumnName="Monedero_TimeOut" />
+                <ScalarProperty Name="Monedero_Status_Url" ColumnName="Monedero_Status_Url" />
+                <ScalarProperty Name="Monedero_Qrcode_Url" ColumnName="Monedero_Qrcode_Url" />
+                <ScalarProperty Name="Monedero_Address" ColumnName="Monedero_Address" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_Usuario" FunctionName="CripMonModel.Store.PA_Usuario" />
+          <FunctionImportMapping FunctionImportName="PA_Usuario_Arbol" FunctionName="CripMonModel.Store.PA_Usuario_Arbol" />
+          <FunctionImportMapping FunctionImportName="PA_Usuario_Auth" FunctionName="CripMonModel.Store.PA_Usuario_Auth">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CripMonModel.PA_Usuario_Auth_Result">
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Correo_Electronico" ColumnName="Correo_Electronico" />
+                <ScalarProperty Name="Cartera_Criptomoneda" ColumnName="Cartera_Criptomoneda" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+                <ScalarProperty Name="Bit_Default" ColumnName="Bit_Default" />
+                <ScalarProperty Name="Des_Estado" ColumnName="Des_Estado" />
+                <ScalarProperty Name="ID_Usuario_Padre" ColumnName="ID_Usuario_Padre" />
+                <ScalarProperty Name="Patrocinador" ColumnName="Patrocinador" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PA_Usuario_Bit_Default" FunctionName="CripMonModel.Store.PA_Usuario_Bit_Default" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

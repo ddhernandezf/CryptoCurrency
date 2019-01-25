@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<script src="@Url.Content("~/CrpMonPortal/Angular/Apps/LoginApp.js")"></script>
+<script src="@Url.Content("~/CrpMonPortal/Angular/Controllers/PrimerCompraCtrl.js")"></script>
+
+<div class="login-box compra" ng-app="LoginApp" ng-controller="PrimerCompraCtrl">
+    <div class="logo-enterprise">
+        <img src="~/CrpMonPortal/Imagenes/logo.png" />
+    </div>
+    <div class="form-registro">
+        <div class="legend">{{ModeloVista.lblPrincipal}}</div>
+        <div kendo-list-view="klvProducto" id="klvProducto" k-data-source="source" k-options="klvProductoOpt">
+            <div class="contenedor-producto" k-template ng-click="CargarProducto(dataItem)">
+                <div class="celda">
+                    <img ng-src="{{dataItem.Img_Url}}" />
+                </div>
+                <div class="celda informacion">
+                    <div class="item nombre">{{ dataItem.Descripcion }}</div>
+                    <div class="item">{{ dataItem.Mensaje_Monto }}</div>
+                    <div class="item">{{ dataItem.Mensaje_Binario }}</div>
+                    <div class="item">{{ dataItem.Mensaje_Alerta }}</div>
+                    <div class="item">{{ dataItem.Mensaje_Dia }}</div>
+                    <div class="item ultimo">{{ dataItem.Mensaje_OutMax }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="error" data-ng-bind="MensajeError"></div>
+        </div>
+        <div class="col-12 button-container">
+            <button id="btnLogin" type="submit" class="k-button k-primary" ng-click="Comprar()">
+                <span>{{ModeloVista.btnComprar}}</span>
+            </button>
+            <button type="button" class="k-button" ng-click="Cancelar()">
+                <span>{{ModeloVista.btnCancelar}}</span>
+            </button>
+        </div>
+    </div>
+</div>

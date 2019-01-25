@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrpMon.Portal", "CrpMon.Portal\CrpMon.Portal.csproj", "{D3CF0952-07BB-4BDB-BEDC-E24C7233C891}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrpMon.Comunes", "CrpMon.Comunes\CrpMon.Comunes.csproj", "{4F84C9C5-2A58-4AA4-8EFB-A7A085114080}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrpMon", "CrpMon\CrpMon.csproj", "{28F0EE7F-4F6B-4EBA-8059-8DFAD52C7B27}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CrpMon.BaseDatos", "CrpMon.BaseDatos\CrpMon.BaseDatos.sqlproj", "{155F4FA1-4A62-4591-A1A5-8BE43163CFCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrpMon.CAD", "CrpMon.CAD\CrpMon.CAD.csproj", "{A0803105-70DA-46B7-AFCD-93C371A0D4E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrpMon.Api", "CrpMon.Api\CrpMon.Api.csproj", "{AB6FEAB0-B219-4DD5-8647-B11540C9FF36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3CF0952-07BB-4BDB-BEDC-E24C7233C891}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3CF0952-07BB-4BDB-BEDC-E24C7233C891}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3CF0952-07BB-4BDB-BEDC-E24C7233C891}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3CF0952-07BB-4BDB-BEDC-E24C7233C891}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F84C9C5-2A58-4AA4-8EFB-A7A085114080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F84C9C5-2A58-4AA4-8EFB-A7A085114080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F84C9C5-2A58-4AA4-8EFB-A7A085114080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F84C9C5-2A58-4AA4-8EFB-A7A085114080}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28F0EE7F-4F6B-4EBA-8059-8DFAD52C7B27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28F0EE7F-4F6B-4EBA-8059-8DFAD52C7B27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28F0EE7F-4F6B-4EBA-8059-8DFAD52C7B27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28F0EE7F-4F6B-4EBA-8059-8DFAD52C7B27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{155F4FA1-4A62-4591-A1A5-8BE43163CFCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{155F4FA1-4A62-4591-A1A5-8BE43163CFCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{155F4FA1-4A62-4591-A1A5-8BE43163CFCF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{155F4FA1-4A62-4591-A1A5-8BE43163CFCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{155F4FA1-4A62-4591-A1A5-8BE43163CFCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{155F4FA1-4A62-4591-A1A5-8BE43163CFCF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A0803105-70DA-46B7-AFCD-93C371A0D4E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0803105-70DA-46B7-AFCD-93C371A0D4E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0803105-70DA-46B7-AFCD-93C371A0D4E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0803105-70DA-46B7-AFCD-93C371A0D4E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB6FEAB0-B219-4DD5-8647-B11540C9FF36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB6FEAB0-B219-4DD5-8647-B11540C9FF36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB6FEAB0-B219-4DD5-8647-B11540C9FF36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB6FEAB0-B219-4DD5-8647-B11540C9FF36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://crpmonrymdemosoft.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CrpMon.Portal\\CrpMon.Portal.csproj
+		SccProjectName1 = CrpMon.Portal
+		SccLocalPath1 = CrpMon.Portal
+		SccProjectUniqueName2 = CrpMon.Comunes\\CrpMon.Comunes.csproj
+		SccProjectName2 = CrpMon.Comunes
+		SccLocalPath2 = CrpMon.Comunes
+		SccProjectUniqueName3 = CrpMon\\CrpMon.csproj
+		SccProjectName3 = CrpMon
+		SccLocalPath3 = CrpMon
+		SccProjectUniqueName4 = CrpMon.BaseDatos\\CrpMon.BaseDatos.sqlproj
+		SccProjectName4 = CrpMon.BaseDatos
+		SccLocalPath4 = CrpMon.BaseDatos
+		SccProjectUniqueName5 = CrpMon.CAD\\CrpMon.CAD.csproj
+		SccProjectName5 = CrpMon.CAD
+		SccLocalPath5 = CrpMon.CAD
+		SccProjectUniqueName6 = CrpMon.Api\\CrpMon.Api.csproj
+		SccProjectName6 = CrpMon.Api
+		SccLocalPath6 = CrpMon.Api
+	EndGlobalSection
+EndGlobal

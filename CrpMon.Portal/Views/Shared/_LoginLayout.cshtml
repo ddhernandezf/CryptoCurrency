@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Ether-Nity | Portal</title>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="shortcut icon" href="@Url.Content("~/CrpMonPortal/Imagenes/favicon.png")" />
+
+    <link href="@Url.Content("~/Content/kendo/2017.2.621/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2017.2.621/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2017.2.621/kendo.bootstrap.min.css")" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/CrpMonPortal/Css/Ether-Nity.css")" rel="stylesheet" type="text/css" />
+
+    <script src="@Url.Content("~/Scripts/kendo/2017.2.621/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2017.2.621/angular.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2017.2.621/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2017.2.621/kendo.all.min.js")"></script>
+</head>
+<body ng-app="LoginApp">
+    @RenderBody()
+    <div class="blocker">
+        <div class="loader">
+            <img src="@Url.Content("~/Content/kendo/2017.2.621/BlueOpal/loading-image.gif")" />
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    .k-textbox,
+    .k-button {
+        font-size: 15px;
+    }
+</style>
+
+<script>
+    var urlGlobal = '@Url.Content("~")';
+    kendo.culture("es-GT");
+</script>

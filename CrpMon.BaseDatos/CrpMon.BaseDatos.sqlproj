@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>CrpMon.BaseDatos</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{155f4fa1-4a62-4591-a1a5-8be43163cfcf}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>CrpMon.BaseDatos</RootNamespace>
+    <AssemblyName>CrpMon.BaseDatos</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Tablas" />
+    <Folder Include="ProcedimientosAlmacenados" />
+    <Folder Include="Scripts" />
+    <Folder Include="Funciones" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tablas\Usuario.sql" />
+    <Build Include="Tablas\Producto.sql" />
+    <Build Include="Tablas\Transaccion.sql" />
+    <Build Include="Tablas\Monedero.sql" />
+    <Build Include="Tablas\Estado_Objeto.sql" />
+    <Build Include="Tablas\Empresa.sql" />
+    <Build Include="Tablas\Clase_Producto.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_Actualiza_Estado.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_bsc_Empresa.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_bsc_Producto.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_bsc_Transaccion_1_Usuario.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_Transaccion.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_Usuario.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_Usuario_Arbol.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_Usuario_Auth.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_Usuario_Bit_Default.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_bsc_Transacciones.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_Actualiza_Password.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_Actualiza_Usuario.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_PaqueteActual.sql" />
+    <Build Include="Funciones\fLast.sql" />
+    <Build Include="Tablas\Notificacion.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_bsc_Notificaciones.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_Gancias_Usuario.sql" />
+    <Build Include="Funciones\fMonedero_Amount.sql" />
+    <Build Include="Tablas\Usuario_Arbol.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_Ins_Usuario_Arbol.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_bsc_Porcentajes.sql" />
+    <Build Include="Tablas\Idioma.sql" />
+    <Build Include="Tablas\Vista.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_bsc_Idioma.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_bsc_Vista.sql" />
+    <Build Include="Tablas\Mensaje.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_bsc_Mensaje.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_MensajeLeido.sql" />
+    <Build Include="Tablas\IdiomaTraduccion.sql" />
+    <Build Include="Tablas\Menu.sql" />
+    <Build Include="Tablas\MenuTraduccion.sql" />
+    <Build Include="Tablas\ProductoTraduccion.sql" />
+    <Build Include="ProcedimientosAlmacenados\PA_bsc_Menu.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\DataEjemplo.sql" />
+    <None Include="Local.publish.xml" />
+    <None Include="Server.publish.xml" />
+    <None Include="Scripts\Publish_20170818.sql" />
+    <None Include="Scripts\Publish_20170830.sql" />
+    <None Include="ServerLocal.publish.xml" />
+    <None Include="Scripts\Publish_20170904.sql" />
+  </ItemGroup>
+</Project>

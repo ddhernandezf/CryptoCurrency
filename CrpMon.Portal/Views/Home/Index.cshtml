@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_GeneralLayout.cshtml";
+}
+
+<div id="mainSplitter" class="contenido-noresponsive">
+    <div id="menuPane" style="overflow: visible; z-index: 1;">
+        <div class="pane-content" style="height: 100%; width:100%; position: absolute;">
+            <div class="language-container">
+                <div class="col-11">
+                    <select name="kddIdioma" kendo-drop-down-list="kddIdioma"
+                            k-data-source="kddIdiomaDS"
+                            k-options="kddIdiomaOPC"
+                            style="width: 100%"></select>
+                </div>
+            </div>
+            <ul kendo-menu="menuGeneral" id="menuGeneral" k-data-source="menuData" class="menu"
+                k-orientation="kmnOrientacion" k-options="kmnOptions" k-on-select="kmnSelect(kendoEvent)"></ul>
+        </div>
+    </div>
+    <div id="bodyPane">
+        <div class="pane-content">
+            <div class="erp-tabContainer">
+                <div id="tbsGeneral"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contenido-responsive" id="tbsGeneralResp" style="width:inherit; height: inherit; float: left; box-sizing: border-box;"></div>

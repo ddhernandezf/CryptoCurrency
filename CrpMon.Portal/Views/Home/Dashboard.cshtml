@@ -1,0 +1,79 @@
+﻿@using CrpMon.Comunes.Modelos.Objetos
+
+@{
+    Layout = "~/Views/Shared/_IframeViewLayout.cshtml";
+}
+
+<script src="@Url.Content("~/CrpMonPortal/Angular/Generales/Funciones.js")"></script>
+<script src="@Url.Content("~/CrpMonPortal/Angular/Apps/EtherApp.js")"></script>
+<script src="@Url.Content("~/CrpMonPortal/Angular/Controllers/DashboardCtrl.js")"></script>
+
+<div class="col-12" style="background-color:white;" ng-app="EtherApp" ng-controller="DashboardCtrl">
+    <div class="col-12 legend-perfil">
+        {{ModeloVista.lblBienvenida}} <strong>@ViewBag.nombre</strong> {{ModeloVista.lblTitulo}}
+    </div>
+    <div class="col-12 legend-perfil">
+        {{ModeloVista.lblEstado}} <strong>@ViewBag.estado</strong>
+    </div>
+    <div class="col-12 legend-perfil" style="text-align:justify;">
+        {{ModeloVista.lblCuerpo1}}
+        <button class="k-button k-primary" onclick="javascript: copyToClipboard('@ViewBag.Link');" style="font-size: 12px;">
+            <img src="@Url.Content("~/CrpMonPortal/Imagenes/Vistas/CopyLink.png")" />
+            <span>@ViewBag.Link</span>
+        </button>
+        {{ModeloVista.lblCuerpo2}}
+    </div>
+    <div class="col-12">
+        <div class="contenedor-ganancia">
+            <div class="lado">
+                <div class="titulo">{{ModeloVista.lblIzquierda}}</div>
+                <div class="contenido">{{(ModeloGanacia.GananciaIzquierda == null) ? 0 : ModeloGanacia.GananciaIzquierda}}</div>
+            </div>
+            <div class="lado">
+                <div class="titulo" style="border-left: solid 1px white;">{{ModeloVista.lblDerecha}}</div>
+                <div class="contenido" style="border-left: solid 1px #357ebd;">{{(ModeloGanacia.GananciaDerecha == null) ? 0 : ModeloGanacia.GananciaDerecha}}</div>
+            </div>
+            <div class="lado total">
+                <div class="titulo">{{ModeloVista.lblTotal}}</div>
+                <div class="contenido">{{(ModeloGanacia.GananciaTotal == null) ? 0 : ModeloGanacia.GananciaTotal}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="col-6 contenedor-perfil">
+            <fieldset>
+                <legend>{{ModeloVista.lblPaquete}}</legend>
+                <div class="col-11">
+                    <div class="contenedor-producto">
+                        <div class="celda">
+                            <img ng-src="{{ModeloProducto.Img_Url}}" />
+                        </div>
+                        <div class="celda informacion">
+                            <div class="item nombre">{{ModeloProducto.Descripcion}}</div>
+                            <div class="item">{{ModeloProducto.Mensaje_Monto}}</div>
+                            <div class="item">{{ModeloProducto.Mensaje_Binario}}</div>
+                            <div class="item">{{ModeloProducto.Mensaje_Alerta}}</div>
+                            <div class="item">{{ModeloProducto.Mensaje_Dia}}</div>
+                            <div class="item ultimo">{{ModeloProducto.Mensaje_OutMax}}</div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="col-12" style="text-align: center;">
+        <button class="k-button" ng-click="Refrescar()"><img src="@Url.Content("~/CrpMonPortal/Imagenes/Vistas/Refrescar.png")" /><span>{{ModeloVista.btnRefrescar}}</span></button>
+        <button class="k-button" ng-click="Cerrar()"><img src="@Url.Content("~/CrpMonPortal/Imagenes/Vistas/Cerrar.png")" /><span>{{ModeloVista.btnCerrar}}</span></button>
+    </div>
+    <br /><br /><br />
+</div>
+
+<script>
+    function copyToClipboard(texto) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val(texto).select();
+        document.execCommand("copy");
+        $temp.remove();
+    }
+</script>

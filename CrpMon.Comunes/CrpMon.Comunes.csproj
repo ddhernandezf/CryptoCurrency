@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F84C9C5-2A58-4AA4-8EFB-A7A085114080}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CrpMon.Comunes</RootNamespace>
+    <AssemblyName>CrpMon.Comunes</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Modelos\CCoinPaymentMessage.cs" />
+    <Compile Include="Modelos\CCoinPaymentResult.cs" />
+    <Compile Include="Modelos\CImagen.cs" />
+    <Compile Include="Modelos\CoinPayments.cs" />
+    <Compile Include="Modelos\Objetos\CArbol.cs" />
+    <Compile Include="Modelos\Objetos\CArbolBinario.cs" />
+    <Compile Include="Modelos\Objetos\CCambioPassword.cs" />
+    <Compile Include="Modelos\Objetos\CCambioPerfil.cs" />
+    <Compile Include="Modelos\Objetos\CCompra.cs" />
+    <Compile Include="Modelos\Objetos\CGananciaUsuario.cs" />
+    <Compile Include="Modelos\Objetos\CLenguaje.cs" />
+    <Compile Include="Modelos\Objetos\CMensaje.cs" />
+    <Compile Include="Modelos\Objetos\CNoticia.cs" />
+    <Compile Include="Modelos\Objetos\CPerfil.cs" />
+    <Compile Include="Modelos\Objetos\CPorcentaje.cs" />
+    <Compile Include="Modelos\Objetos\CProducto.cs" />
+    <Compile Include="Modelos\Objetos\CTransaccion.cs" />
+    <Compile Include="Modelos\Objetos\CTransaccionCompra.cs" />
+    <Compile Include="Modelos\Objetos\CVista.cs" />
+    <Compile Include="Modelos\Objetos\CIdioma.cs" />
+    <Compile Include="Modelos\Vistas\CInicioSesion.cs" />
+    <Compile Include="Modelos\Objetos\CMenu.cs" />
+    <Compile Include="Modelos\Vistas\CPersona.cs" />
+    <Compile Include="Modelos\Vistas\CRegistro.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

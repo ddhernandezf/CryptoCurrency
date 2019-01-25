@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Views/Shared/_IframeViewLayout.cshtml";
+}
+
+<script src="@Url.Content("~/CrpMonPortal/Angular/Generales/Funciones.js")"></script>
+<script src="@Url.Content("~/CrpMonPortal/Angular/Apps/EtherApp.js")"></script>
+<script src="@Url.Content("~/CrpMonPortal/Angular/Controllers/ProductoCtrl.js")"></script>
+
+<div ng-app="EtherApp" ng-controller="ProductoCtrl">
+    <div class="col-12" style="text-align: center;">
+        <button class="k-button" ng-click="Refrescar();"><img src="@Url.Content("~/CrpMonPortal/Imagenes/Vistas/Refrescar.png")" /><span>{{ModeloVista.btnRefrescar}}</span></button>
+        <button class="k-button" ng-click="Cerrar()"><img src="@Url.Content("~/CrpMonPortal/Imagenes/Vistas/Cerrar.png")" /><span>{{ModeloVista.btnCancelar}}</span></button>
+    </div>
+    <div class="col-12 legend">{{ModeloVista.lblMensaje}}</div>
+    <div kendo-list-view id="klvProducto" k-data-source="source" k-options="klvProductoOpt" style="display: inline-block;">
+        <div class="contenedor-producto" k-template ng-click="CargarProducto(dataItem)">
+            <div class="celda">
+                <img ng-src="{{dataItem.Img_Url}}" />
+            </div>
+            <div class="celda informacion">
+                <div class="item nombre">{{ dataItem.Descripcion }}</div>
+                <div class="item">{{ dataItem.Mensaje_Monto }}</div>
+                <div class="item">{{ dataItem.Mensaje_Binario }}</div>
+                <div class="item">{{ dataItem.Mensaje_Alerta }}</div>
+                <div class="item">{{ dataItem.Mensaje_Dia }}</div>
+                <div class="item ultimo">{{ dataItem.Mensaje_OutMax }}</div>
+            </div>
+        </div>
+    </div>
+    <div kendo-window="kwnComprar"
+         k-options="kwnComprarOpt">
+        <div id="GestorCompra">
+            <div class="col-11">
+                <div class="contenedor-producto">
+                    <div class="celda">
+                        <img ng-src="{{ProductoCompra.Img_Url}}" />
+                    </div>
+                    <div class="celda informacion">
+                        <div class="item nombre">{{ ProductoCompra.Descripcion }}</div>
+                        <div class="item">{{ ProductoCompra.Mensaje_Monto }}</div>
+                        <div class="item">{{ ProductoCompra.Mensaje_Binario }}</div>
+                        <div class="item">{{ ProductoCompra.Mensaje_Alerta }}</div>
+                        <div class="item">{{ ProductoCompra.Mensaje_Dia }}</div>
+                        <div class="item ultimo">{{ ProductoCompra.Mensaje_OutMax }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-11 legend" style="text-align:center;">
+                <div class="col-12">{{ModeloVista.lblConfirmaCompra}}</div>
+            </div>
+            <div class="col-11 button-container">
+                <button class="k-button k-primary" ng-click="Confirmacion()">{{ModeloVista.btnCompra}}</button>
+                <button class="k-button" ng-click="CerrarVentanaCompra()">{{ModeloVista.BtnCancelaCompra}}</button>
+            </div>
+        </div>
+        <div id="loader" style="width: 100%;text-align: center;display: table;height: 100%;">
+            <img src="@Url.Content("~/Content/kendo/2017.2.621/BlueOpal/loading-image.gif")" style="display: table-cell;text-align: center;vertical-align: middle;margin: 0 auto 0 auto;padding: 10px 0px;" />
+        </div>
+        <div id="GestorPago">
+            <div style="text-align: center;width: 100%;">
+                <img ng-src="{{ConfirmaCompra.Monedero_Qrcode_Url}}" border="0" style="display: block;margin: 0 auto 0 auto;">
+            </div>
+            <div class="legend" style="text-align:left;"><strong>{{ModeloVista.Confirmacion.lblTotal}} {{ConfirmaCompra.Monedero_Amount}} (ETH)</strong> </div>
+            <div class="legend" style="text-align:left;"><strong>{{ModeloVista.Confirmacion.lblDireccion}} {{ConfirmaCompra.Monedero_Address}}</strong> </div>
+            <div class="legend" style="text-align:left;"><strong>{{ModeloVista.Confirmacion.lblTiempo}} </strong> {{ConfirmaCompra.TiempoAproximado}}</div>
+            <div class="error">{{msgError}}</div>
+            <div class="col-11 button-container">
+                <button class="k-button" ng-click="CerrarVentanaCompra()">{{ModeloVista.btnCerrar}}</button>
+            </div>
+        </div>
+    </div>
+
+    <div kendo-window="kwnMensaje"
+         k-options="kwnMensajeOpt">
+        <div class="col-11 legend">{{ModeloVista.lblError}}</div>
+    </div>
+</div>
+
+<script>
+    var MontoPaqueteActual = @ViewBag.MontoProductoActual;
+</script>
